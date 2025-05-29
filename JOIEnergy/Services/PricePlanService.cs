@@ -50,5 +50,10 @@ namespace JOIEnergy.Services
             }
             return _pricePlans.ToDictionary(plan => plan.PlanName, plan => calculateCost(electricityReadings, plan));
         }
+
+        public decimal? GetCostOfLastWeeksUsage(string smartMeterId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
