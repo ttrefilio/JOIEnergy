@@ -8,6 +8,7 @@ using System.Linq;
 using Xunit;
 using Newtonsoft.Json.Linq;
 using System.Collections;
+using JOIEnergy.Domain.Entities;
 
 namespace JOIEnergy.Tests
 {
@@ -23,7 +24,7 @@ namespace JOIEnergy.Tests
 
         public PricePlanComparisonTest()
         {
-            var readings = new Dictionary<string, List<Domain.ElectricityReading>>();
+            var readings = new Dictionary<string, List<ElectricityReading>>();
             meterReadingService = new MeterReadingService(readings);
             var pricePlans = new List<PricePlan>() { 
                 new PricePlan() { PlanName = PRICE_PLAN_1_ID, UnitRate = 10, PeakTimeMultiplier = NoMultipliers() }, 

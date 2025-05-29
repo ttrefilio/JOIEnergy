@@ -9,15 +9,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using JOIEnergy.Domain.Entities;
+using JOIEnergy.Infrastructure.Providers;
+using JOIEnergy.Domain.Constants;
 
 namespace JOIEnergy
 {
     public class Startup
     {
-        private const string MOST_EVIL_PRICE_PLAN_ID = "price-plan-0";
-        private const string RENEWABLES_PRICE_PLAN_ID = "price-plan-1";
-        private const string STANDARD_PRICE_PLAN_ID = "price-plan-2";
-
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,26 +31,9 @@ namespace JOIEnergy
             var readings =
                 GenerateMeterElectricityReadings();
 
-            var pricePlans = new List<PricePlan> {
-                new PricePlan{
-                    PlanName = MOST_EVIL_PRICE_PLAN_ID,
-                    EnergySupplier = Enums.Supplier.DrEvilsDarkEnergy,
-                    UnitRate = 10m,
-                    PeakTimeMultiplier = new List<PeakTimeMultiplier>()
-                },
-                new PricePlan{
-                    PlanName = RENEWABLES_PRICE_PLAN_ID,
-                    EnergySupplier = Enums.Supplier.TheGreenEco,
-                    UnitRate = 2m,
-                    PeakTimeMultiplier = new List<PeakTimeMultiplier>()
-                },
-                new PricePlan{
-                    PlanName = STANDARD_PRICE_PLAN_ID,
-                    EnergySupplier = Enums.Supplier.PowerForEveryone,
-                    UnitRate = 1m,
-                    PeakTimeMultiplier = new List<PeakTimeMultiplier>()
-                }
-            };
+            var pricePlans = InMemoryPricePlanProvider.GetPricePlans();
+
+            
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddTransient<IAccountService, AccountService>();
@@ -89,11 +72,11 @@ namespace JOIEnergy
             get
             {
                 Dictionary<string, string> smartMeterToPricePlanAccounts = new Dictionary<string, string>();
-                smartMeterToPricePlanAccounts.Add("smart-meter-0", MOST_EVIL_PRICE_PLAN_ID);
-                smartMeterToPricePlanAccounts.Add("smart-meter-1", RENEWABLES_PRICE_PLAN_ID);
-                smartMeterToPricePlanAccounts.Add("smart-meter-2", MOST_EVIL_PRICE_PLAN_ID);
-                smartMeterToPricePlanAccounts.Add("smart-meter-3", STANDARD_PRICE_PLAN_ID);
-                smartMeterToPricePlanAccounts.Add("smart-meter-4", RENEWABLES_PRICE_PLAN_ID);
+                smartMeterToPricePlanAccounts.Add("smart-meter-0", PricePlanIds.MOST_EVIL_PRICE_PLAN_ID);
+                smartMeterToPricePlanAccounts.Add("smart-meter-1", PricePlanIds.RENEWABLES_PRICE_PLAN_ID);
+                smartMeterToPricePlanAccounts.Add("smart-meter-2", PricePlanIds.MOST_EVIL_PRICE_PLAN_ID);
+                smartMeterToPricePlanAccounts.Add("smart-meter-3", PricePlanIds.STANDARD_PRICE_PLAN_ID);
+                smartMeterToPricePlanAccounts.Add("smart-meter-4", PricePlanIds.RENEWABLES_PRICE_PLAN_ID);
                 return smartMeterToPricePlanAccounts;
             }
         }

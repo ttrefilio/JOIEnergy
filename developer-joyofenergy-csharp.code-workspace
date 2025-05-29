@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "JOIEnergy"
+		},
+		{
+			"path": "JOIEnergy.Tests"
+		}
+	],
+	"settings": {}
+}

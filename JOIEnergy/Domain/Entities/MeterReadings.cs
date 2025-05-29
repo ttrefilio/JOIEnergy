@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace JOIEnergy.Domain
+namespace JOIEnergy.Domain.Entities
 {
     public class MeterReadings
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JOIEnergy.Domain;
+using JOIEnergy.Domain.Entities;
 using JOIEnergy.Services;
 using Microsoft.AspNetCore.Mvc;
 

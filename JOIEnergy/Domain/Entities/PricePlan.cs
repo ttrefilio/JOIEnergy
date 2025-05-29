@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JOIEnergy.Domain.Entities;
 using JOIEnergy.Enums;
 
 namespace JOIEnergy.Domain
@@ -21,11 +22,5 @@ namespace JOIEnergy.Domain
                 return UnitRate;
             }
         }
-    }
-
-    public class PeakTimeMultiplier
-    {
-        public DayOfWeek DayOfWeek { get; set; }
-        public decimal Multiplier { get; set; }
-    }
+    }    
 }
