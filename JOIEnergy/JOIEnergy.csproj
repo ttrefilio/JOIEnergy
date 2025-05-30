@@ -8,7 +8,6 @@
     <Folder Include="Domain\Interfaces\" />
     <Folder Include="wwwroot\" />
     <Folder Include="Services\" />
-    <Folder Include="Generator\" />
   </ItemGroup>
 
   <ItemGroup>

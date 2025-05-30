@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JOIEnergy.Domain;
 using JOIEnergy.Domain.Entities;
 
-namespace JOIEnergy.Generator
+namespace JOIEnergy.Infrastructure.Generator
 {
     public class ElectricityReadingGenerator
     {
