@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JOIEnergy.Enums;
-using JOIEnergy.Services;
+using JOIEnergy;
+using JOIEnergy.Application.Services;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace JOIEnergy.Controllers
+namespace JOIEnergy.API.Controllers
 {
-    [Route("price-plans")]
+    [Route("api/[controller]")]
     public class PricePlanComparatorController : Controller
     {
         public const string PRICE_PLAN_ID_KEY = "pricePlanId";
@@ -40,10 +39,12 @@ namespace JOIEnergy.Controllers
         }
 
         [HttpGet("recommend/{smartMeterId}")]
-        public ObjectResult RecommendCheapestPricePlans(string smartMeterId, int? limit = null) {
+        public ObjectResult RecommendCheapestPricePlans(string smartMeterId, int? limit = null)
+        {
             var consumptionForPricePlans = _pricePlanService.GetConsumptionCostOfElectricityReadingsForEachPricePlan(smartMeterId);
 
-            if (!consumptionForPricePlans.Any()) {
+            if (!consumptionForPricePlans.Any())
+            {
                 return new NotFoundObjectResult(string.Format("Smart Meter ID ({0}) not found", smartMeterId));
             }
 

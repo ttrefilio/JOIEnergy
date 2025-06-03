@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JOIEnergy.Domain.Entities;
 
 namespace JOIEnergy.Domain.Entities
 {

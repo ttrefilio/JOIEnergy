@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JOIEnergy.Domain.Entities;
-using JOIEnergy.Enums;
+using JOIEnergy.Domain.Enums;
 
-namespace JOIEnergy.Domain
+namespace JOIEnergy.Domain.Entities
 {
     public class PricePlan
     {

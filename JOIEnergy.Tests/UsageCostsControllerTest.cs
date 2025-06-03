@@ -1,9 +1,8 @@
-using System;
 using Xunit;
 using Moq;
-using JOIEnergy.Services;
-using JOIEnergy.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using JOIEnergy.Application.Services;
+using JOIEnergy.API.Controllers;
 
 namespace JOIEnergy.Tests;
 
@@ -20,7 +19,7 @@ public class UsageCostsControllerTest
         var pricePlanService = new Mock<IPricePlanService>();
         pricePlanService.Setup(p => p.GetCostOfLastWeeksUsage(SMART_METER_ID)).Returns(expectedCost);
 
-        var controller = new UsageCostsController(pricePlanService.Object);
+        var controller = new UsageCostController(pricePlanService.Object);
 
         // Act
         var result = controller.GetLastWeekUsageCost(SMART_METER_ID);
@@ -40,7 +39,7 @@ public class UsageCostsControllerTest
         var pricePlanService = new Mock<IPricePlanService>();
         pricePlanService.Setup(p => p.GetCostOfLastWeeksUsage(SMART_METER_NO_PLAN_ID)).Returns((decimal?)null);
 
-        var controller = new UsageCostsController(pricePlanService.Object);
+        var controller = new UsageCostController(pricePlanService.Object);
 
         // Act
         var result = controller.GetLastWeekUsageCost(SMART_METER_NO_PLAN_ID);

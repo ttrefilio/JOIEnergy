@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using JOIEnergy.Services;
-using JOIEnergy.Domain;
 using Xunit;
 using JOIEnergy.Domain.Entities;
+using JOIEnergy.Application.Services;
 
 namespace JOIEnergy.Tests
 {

@@ -5,17 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Interfaces\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.2" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JOIEnergy.Application\JOIEnergy.Application.csproj" />
+    <ProjectReference Include="..\JOIEnergy.Domain\JOIEnergy.Domain.csproj" />
+    <ProjectReference Include="..\JOIEnergy.Infrastructure\JOIEnergy.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

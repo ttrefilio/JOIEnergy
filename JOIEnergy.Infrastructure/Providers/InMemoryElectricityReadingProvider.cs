@@ -7,7 +7,7 @@ namespace JOIEnergy.Infrastructure.Providers;
 
 public static class InMemoryElectricityReadingProvider
 {
-    internal static Dictionary<string, List<ElectricityReading>> GenerateMeterElectricityReadings()
+    public static Dictionary<string, List<ElectricityReading>> GenerateMeterElectricityReadings()
     {
         var readings = new Dictionary<string, List<ElectricityReading>>();
         var generator = new ElectricityReadingGenerator();

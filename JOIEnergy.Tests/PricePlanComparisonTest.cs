@@ -1,14 +1,10 @@
-﻿using JOIEnergy.Controllers;
-using JOIEnergy.Domain;
-using JOIEnergy.Enums;
-using JOIEnergy.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using Newtonsoft.Json.Linq;
-using System.Collections;
 using JOIEnergy.Domain.Entities;
+using JOIEnergy.API.Controllers;
+using JOIEnergy.Application.Services;
 
 namespace JOIEnergy.Tests
 {

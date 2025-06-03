@@ -1,19 +1,18 @@
-
-using JOIEnergy.Services;
+using JOIEnergy.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JOIEnergy.Controllers
+namespace JOIEnergy.API.Controllers
 {
     [Route("api/[controller]")]
-    public class UsageCostsController : Controller
+    public class UsageCostController : Controller
     {
         private readonly IPricePlanService pricePlanService;
-        public UsageCostsController(IPricePlanService pricePlanService)
+        public UsageCostController(IPricePlanService pricePlanService)
         {
             this.pricePlanService = pricePlanService;
         }
 
-        [HttpGet("/{smartMeterId}")]
+        [HttpGet("{smartMeterId}")]
         public IActionResult GetLastWeekUsageCost(string smartMeterId)
         {
             decimal? lastWeekCost = pricePlanService.GetCostOfLastWeeksUsage(smartMeterId);

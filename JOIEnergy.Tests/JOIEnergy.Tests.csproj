@@ -14,11 +14,13 @@
 </PackageReference>
     <PackageReference Include="Moq" Version="4.20.70" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\JOIEnergy\JOIEnergy.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Remove="PricePlanServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JOIEnergy.API\JOIEnergy.API.csproj" />
+    <ProjectReference Include="..\JOIEnergy.Application\JOIEnergy.Application.csproj" />
+    <ProjectReference Include="..\JOIEnergy.Domain\JOIEnergy.Domain.csproj" />
+    <ProjectReference Include="..\JOIEnergy.Infrastructure\JOIEnergy.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

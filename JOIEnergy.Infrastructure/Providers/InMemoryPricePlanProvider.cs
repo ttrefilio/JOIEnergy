@@ -1,6 +1,5 @@
-using System;
 using System.Collections.Generic;
-using JOIEnergy.Domain;
+using JOIEnergy.Domain.Enums;
 using JOIEnergy.Domain.Constants;
 using JOIEnergy.Domain.Entities;
 
@@ -13,19 +12,19 @@ public class InMemoryPricePlanProvider
         return new List<PricePlan> {
                 new PricePlan{
                     PlanName = PricePlanIds.MOST_EVIL_PRICE_PLAN_ID,
-                    EnergySupplier = Enums.Supplier.DrEvilsDarkEnergy,
+                    EnergySupplier = Supplier.DrEvilsDarkEnergy,
                     UnitRate = 10m,
                     PeakTimeMultiplier = new List<PeakTimeMultiplier>()
                 },
                 new PricePlan{
                     PlanName = PricePlanIds.RENEWABLES_PRICE_PLAN_ID,
-                    EnergySupplier = Enums.Supplier.TheGreenEco,
+                    EnergySupplier = Supplier.TheGreenEco,
                     UnitRate = 2m,
                     PeakTimeMultiplier = new List<PeakTimeMultiplier>()
                 },
                 new PricePlan{
                     PlanName = PricePlanIds.STANDARD_PRICE_PLAN_ID,
-                    EnergySupplier = Enums.Supplier.PowerForEveryone,
+                    EnergySupplier = Supplier.PowerForEveryone,
                     UnitRate = 1m,
                     PeakTimeMultiplier = new List<PeakTimeMultiplier>()
                 }
